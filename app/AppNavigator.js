@@ -1,13 +1,15 @@
-import React from 'react'
-import React from 'react'
-import { View, Text } from 'react-native';
+import React from 'react';
+import Home from './screens/Home';
+import Menu from './screens/Menu';
+import ItemDetails from './screens/ItemDetail';
+import { SafeAreaView } from 'react-native';
+
+
 
 
 const AppNavigator = () => {
     return (
-        <View>
-            <Text>AppNavigator Screen</Text>
-        </View>
+        <Home />
     )
 }
 
