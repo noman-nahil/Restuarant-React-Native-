@@ -1,6 +1,6 @@
 import React from 'react'
-import { View, Text, Button } from 'react-native';
-
+import { View, Text, Button, StyleSheet } from 'react-native';
+import Constants from 'expo-constants';
 
 const Menu = (props) => {
     console.log(props);
@@ -14,5 +14,10 @@ const Menu = (props) => {
         </View>
     )
 }
+const styles = StyleSheet.create({
+    view: {
+        paddingTop: Platform.OS === "ios" ? 0 : Constants.statusBarHeight,
+    }
+})
 
 export default Menu;

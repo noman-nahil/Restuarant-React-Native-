@@ -1,6 +1,6 @@
 import React from 'react';
 import Home from './screens/Home';
-import Menu from './screens/Menu';
+import MenuScreen from './screens/Menu';
 import ItemDetails from './screens/ItemDetail';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 //import { createStackNavigator } from '@react-navigation/stack';
@@ -12,9 +12,9 @@ const Stack = createNativeStackNavigator();
 const MenuStack = () => {
     return (
         <Stack.Navigator screenOptions={{
-            headerShown: false
+            //headerShown: false
         }}>
-            <Stack.Screen name="Menu" component={Menu} />
+            <Stack.Screen name="Menu" component={MenuScreen} />
             <Stack.Screen name="Item Details" component={ItemDetails} />
         </Stack.Navigator>
     )
@@ -24,7 +24,7 @@ const AppNavigator = () => {
     return (
         <Drawer.Navigator initialRouteName="Home" >
             <Drawer.Screen name="Home" component={Home} />
-            <Drawer.Screen name="Menu" component={MenuStack} screenOptions={{
+            <Drawer.Screen name="Menu" component={MenuStack} options={{
                 headerShown: false
             }} />
         </Drawer.Navigator>
