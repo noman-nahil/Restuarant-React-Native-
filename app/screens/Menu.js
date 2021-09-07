@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { View, Text, Button, StyleSheet, Platform } from 'react-native';
 import Constants from 'expo-constants';
 
 const Menu = (props) => {

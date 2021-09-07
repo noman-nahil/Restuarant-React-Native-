@@ -14,7 +14,7 @@ const MenuStack = () => {
         <Stack.Navigator screenOptions={{
             //headerShown: false
         }}>
-            <Stack.Screen name="Menu" component={MenuScreen} />
+            <Stack.Screen name="Menu List" component={MenuScreen} />
             <Stack.Screen name="Item Details" component={ItemDetails} />
         </Stack.Navigator>
     )

@@ -7,7 +7,7 @@ import Constants from 'expo-constants';
 const Home = () => {
     return (
         <SafeAreaView>
-            <View >
+            <View style={styles.view}>
                 <Text>Home Screen</Text>
             </View>
         </SafeAreaView>
