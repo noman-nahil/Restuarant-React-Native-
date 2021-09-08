@@ -23,13 +23,13 @@ const Menu = (props) => {
     useEffect(() => {
         props.getItems();
     }, [])
-    console.log(props);
+    //console.log(props);
     return (
         <View>
             <FlatList
                 data={props.items}
                 renderItem={
-                    ({ item }) => (<MenuItem item={item} />)
+                    ({ item }) => (<MenuItem item={item} selectItem={() => props.navigation.navigate("Item Details", { item: item })} />)
                 }
                 keyExtractor={item => item._id}
             />

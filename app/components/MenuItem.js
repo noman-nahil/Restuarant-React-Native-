@@ -3,7 +3,7 @@ import { View, StyleSheet, TouchableHighlight, Image, Text } from 'react-native'
 
 const MenuItem = props => {
     return (
-        <TouchableHighlight>
+        <TouchableHighlight onPress={props.selectItem}>
             <View style={styles.container}>
                 <Image source={{ uri: props.item.images[0] }} style={styles.image} />
                 <View style={styles.details}>
@@ -26,8 +26,8 @@ const styles = StyleSheet.create({
         justifyContent: "center"
     },
     image: {
-        width: 80,
-        height: 80
+        width: 150,
+        height: 150
     },
     name: {
         fontWeight: "500"
