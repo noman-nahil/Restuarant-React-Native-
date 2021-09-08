@@ -9,7 +9,7 @@ const ItemDetails = (props) => {
         <View style={styles.view}>
             <Image source={{ uri: item.images[0] }} style={styles.image} />
             <View>
-                <Text style={styles.name}>{item.menuname}</Text>
+                {/* <Text style={styles.name}>{item.menuname}</Text> */}
                 <Text style={styles.description}>{item.description}</Text>
             </View>
         </View>
