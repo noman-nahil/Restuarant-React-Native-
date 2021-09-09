@@ -16,7 +16,7 @@ const Home = () => {
 }
 const styles = StyleSheet.create({
     view: {
-        paddingTop: Platform.OS === "ios" ? 0 : Constants.statusBarHeight,
+        //paddingTop: Platform.OS === "ios" ? 0 : Constants.statusBarHeight,
     }
 })
 

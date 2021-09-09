@@ -13,3 +13,10 @@ export const getItems = () => dispatch => {
         .then(response => dispatch(loadItems(response.data)))
         .catch(err => console.log(err))
 }
+
+export const addToFavourites = item => {
+    return {
+        type: actionTypes.ADD_TO_FAVOURITES,
+        payload: item
+    }
+}
