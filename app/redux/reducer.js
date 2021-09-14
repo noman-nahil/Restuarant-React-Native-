@@ -17,6 +17,11 @@ export const reducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 fav: state.fav.concat(action.payload),
             }
+        case actionTypes.REMOVE_TO_FAVOURITES:
+            return {
+                ...state,
+                fav: state.fav.filter(item => item.id !== action.payload.id)
+            }
         default:
             return state;
     }
