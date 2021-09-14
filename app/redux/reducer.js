@@ -2,7 +2,7 @@ import * as actionTypes from './actionTypes';
 
 const INITIAL_STATE = {
     items: [],
-    favourites: []
+    fav: [],
 }
 
 export const reducer = (state = INITIAL_STATE, action) => {
@@ -15,7 +15,7 @@ export const reducer = (state = INITIAL_STATE, action) => {
         case actionTypes.ADD_TO_FAVOURITES:
             return {
                 ...state,
-                favourites: state.favourites.concat(action.payload)
+                fav: state.fav.concat(action.payload),
             }
         default:
             return state;

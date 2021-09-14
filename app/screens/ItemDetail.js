@@ -1,52 +1,61 @@
 import React from 'react'
 import { View, Text, Image, StyleSheet } from 'react-native';
+import { TouchableHighlight } from 'react-native-gesture-handler';
 import { connect } from 'react-redux';
 import Icon from '../components/Icon';
 import { addToFavourites } from '../redux/actionCreators';
 
-const mapState = state => {
+const mapStateToProps = state => {
+    console.log(state);
     return {
-        favourites: state.favourites
+        fav: state.fav
     }
 }
 
-const mapDispatch = dispatch => {
+const mapDispatchToProps = dispatch => {
     return {
-        addToFavourites: item => dispatch(addToFavourites(item))
+        addToFavourites: dish => dispatch(addToFavourites(dish))
     }
 }
 const ItemDetails = (props) => {
-    const item = props.route.params.item;
-    const isFav = props.favourites.some(x => x.id == item.id)
-    //console.log(item.description);
+    const dish = props.route.params.item;
+    console.log(dish);
+    console.log(props.fav.length);
 
-    const markFav = item => {
+    const isFav = props.fav.some(item => item.id === dish.id)
+    const markFav = dish => {
         if (isFav) {
             alert("Already added to Favourites")
         }
         else {
-            props.addToFavourites(item);
+            props.addToFavourites(dish);
+            console.log("Item Details", dish);
+            //console.log(props.favourites);
         }
+        // console.log("Item Details", dish);
+        // props.addToFavourites(dish);
     }
-    let icon = 'ios-heart-outline';
+    let iconName = "heart-outline";
     if (isFav) {
-        icon = "ios-heart-sharp";
+        iconName = "heart-sharp";
     }
     return (
         <View style={styles.view}>
-            <Image source={{ uri: item.images[0] }} style={styles.image} />
+            <Image source={{ uri: dish.image }} style={styles.image} />
             <View>
-                {/* <Text style={styles.name}>{item.menuname}</Text> */}
+                {/* <TouchableHighlight onPress={() =>
+                    markFav(dish)}> */}
                 <Icon
-                    name={icon}
+                    name={iconName}
                     color="#F53B50"
                     size={40}
                     iconStyle={{
                         paddingRight: 10
                     }}
-                    action={() => markFav(item)}
+                    action={() => markFav(dish)}
                 />
-                <Text style={styles.description}>{item.description}</Text>
+                {/* </TouchableHighlight> */}
+                <Text style={styles.description}>{dish.description}</Text>
             </View>
         </View>
     )
@@ -68,4 +77,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default connect(mapState, mapDispatch)(ItemDetails);
+export default connect(mapStateToProps, mapDispatchToProps)(ItemDetails);

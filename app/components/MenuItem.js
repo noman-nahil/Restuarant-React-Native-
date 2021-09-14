@@ -5,9 +5,9 @@ const MenuItem = props => {
     return (
         <TouchableHighlight onPress={props.selectItem}>
             <View style={styles.container}>
-                <Image source={{ uri: props.item.images[0] }} style={styles.image} />
+                <Image source={{ uri: props.item.image }} style={styles.image} />
                 <View style={styles.details}>
-                    <Text style={styles.name}>{props.item.menuname}</Text>
+                    <Text style={styles.name}>{props.item.name}</Text>
                     <Text style={styles.description} numberOfLines={2}>{props.item.description}</Text>
                 </View>
             </View>

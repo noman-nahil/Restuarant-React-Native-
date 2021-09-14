@@ -31,7 +31,7 @@ const Menu = (props) => {
                 renderItem={
                     ({ item }) => (<MenuItem item={item} selectItem={() => props.navigation.navigate("Item Details", { item: item })} />)
                 }
-                keyExtractor={item => item._id}
+                keyExtractor={item => item.id.toString()}
             />
         </View>
     )

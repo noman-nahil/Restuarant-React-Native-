@@ -7,6 +7,8 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native'//
 import Icon from './components/Icon';
+import Favourites from './screens/Favourites';
+
 
 const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
@@ -35,7 +37,34 @@ const MenuStack = () => {
             }
         }}>
             <Stack.Screen name="Item List" component={MenuScreen} />
-            <Stack.Screen name="Item Details" component={ItemDetails} options={({ route }) => ({ title: route.params.item.menuname })} />
+            <Stack.Screen name="Item Details" component={ItemDetails} options={({ route }) => ({ title: route.params.item.name })} />
+        </Stack.Navigator>
+    )
+}
+const FavStack = () => {
+    const navigation = useNavigation();
+    return (
+        <Stack.Navigator screenOptions={{
+            headerRight: () => (
+                <Icon
+                    action={() => navigation.toggleDrawer()}
+                    name="ios-menu"
+                    color="black"
+                    size={24}
+                    iconStyle={{
+                        paddingRight: 15
+                    }}
+                />),
+            //headerShown: false
+            headerStyle: {
+                backgroundColor: '#F53B50',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+                fontWeight: 'bold'
+            }
+        }}>
+            <Stack.Screen name="Favourite Items" component={Favourites} />
         </Stack.Navigator>
     )
 }
@@ -45,6 +74,9 @@ const AppNavigator = () => {
         <Drawer.Navigator initialRouteName="Home" >
             <Drawer.Screen name="Home" component={Home} />
             <Drawer.Screen name="Menu" component={MenuStack} options={{
+                headerShown: false
+            }} />
+            <Drawer.Screen name="Favourite Items" component={FavStack} options={{
                 headerShown: false
             }} />
         </Drawer.Navigator>
